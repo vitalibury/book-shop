@@ -1,7 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm lint
+npm run lint
 npm run lint-css
-npm test
 npm run pretty-quick

@@ -1,0 +1,9 @@
+<div>
+    <p>name: {{ book.name }}</p>
+    <p>description: {{ book.description }}</p>
+    <p>price: {{ book.price }}</p>
+    <p>category: {{ book.category }}</p>
+    <p>create date: {{ book.createDate }}</p>
+    <p>availability: {{ book.isAvailable }}</p>
+</div>
+<button (click)="onBuy()" [disabled]="isBookNoExist">Buy</button>
