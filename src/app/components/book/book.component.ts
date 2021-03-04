@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+// import * as EventEmitter from 'events';
 import { IBookModel } from 'src/app/models/book';
 
 @Component({
@@ -7,35 +8,23 @@ import { IBookModel } from 'src/app/models/book';
     styleUrls: ['./book.component.css'],
 })
 export class BookComponent implements OnInit {
-    @Input() bookQuantity: number;
+    @Input() book: IBookModel;
 
-    @Output()
-    isBookNoExist = true;
+    @Output() bookBuy = new EventEmitter();
 
-    book: IBookModel = {
-        name: 'first book',
-        description: 'about first book',
-        price: 100,
-        category: 3,
-        createDate: 25,
-        isAvailable: true,
-    };
+    color = '';
 
     constructor() {}
 
-    ngOnInit(): void {
-        this.appearBook();
+    // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
+    ngOnInit(): void {}
+
+    onBuy(data: any) {
+        // console.log(data);
+        this.bookBuy.emit({ ...data });
     }
 
-    onBuy() {
-        console.log('buy book');
-    }
-
-    private appearBook() {
-        if (this.bookQuantity) {
-            this.isBookNoExist = false;
-        } else {
-            this.isBookNoExist = true;
-        }
+    onHover($event) {
+        this.color = $event.type === 'mouseover' ? 'red' : '';
     }
 }

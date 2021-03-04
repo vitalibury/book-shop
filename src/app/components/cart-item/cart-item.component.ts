@@ -1,17 +1,19 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { AfterContentInit, ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
     selector: 'app-cart-item',
     templateUrl: './cart-item.component.html',
     styleUrls: ['./cart-item.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CartItemComponent implements OnInit {
-    // @Input()
-
-    // @Output()
+export class CartItemComponent implements AfterContentInit {
+    @Input() cartItem;
 
     constructor() {}
 
-    // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
-    ngOnInit(): void {}
+    book;
+
+    ngAfterContentInit(): void {
+        this.book = this.cartItem.book;
+    }
 }
