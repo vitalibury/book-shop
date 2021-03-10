@@ -1,4 +1,5 @@
 import { AfterContentInit, ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { IBookModel } from 'src/app/models/book';
 
 @Component({
     selector: 'app-cart-item',
@@ -11,7 +12,7 @@ export class CartItemComponent implements AfterContentInit {
 
     constructor() {}
 
-    book;
+    book: IBookModel;
 
     ngAfterContentInit(): void {
         this.book = this.cartItem.book;

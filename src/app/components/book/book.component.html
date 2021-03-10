@@ -1,4 +1,10 @@
-<div class="book-item" [ngClass]="color" (mouseover)="onHover($event)" (mouseleave)="onHover($event)">
+<div
+    *ngFor="let book of books"
+    class="book-item"
+    [ngClass]="color"
+    (mouseover)="onHover($event)"
+    (mouseleave)="onHover($event)"
+>
     <div>name: {{ book.name }}</div>
     <div>description: {{ book.description }}</div>
     <div>price: {{ book.price }}</div>

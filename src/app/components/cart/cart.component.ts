@@ -1,52 +1,49 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { IBookModel } from 'src/app/models/book';
+import { CartService } from 'src/app/services/cart/cart.service';
 
 @Component({
     selector: 'app-cart',
     templateUrl: './cart.component.html',
     styleUrls: ['./cart.component.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CartComponent implements OnChanges {
-    @Input() currentBook: IBookModel;
+    @Input() currentBook;
 
-    cartItems = [];
+    cartItems: any = [];
+
+    totalQuantity: number;
+
+    totalSum: number;
 
     isEmpty = true;
 
-    constructor() {}
+    constructor(private _cartService: CartService) {}
+
+    // ngOnInit() {
+    // }
 
     ngOnChanges(): void {
-        this.addBook();
+        this.addBook(this.currentBook);
+        this.cartItems = this._cartService.CartProduct;
+        this.totalQuantity = this._cartService.totalQuantity;
+        this.totalSum = this._cartService.totalSum;
         console.log(this.cartItems);
     }
 
-    addBook() {
-        if (this.currentBook === undefined) return;
-        const ind = this.cartItems.findIndex((item) => item.book.name === this.currentBook.name);
-        console.log(ind);
-        if (ind < 0) {
-            this.cartItems.push({ book: this.currentBook, quantity: 1 });
-        } else {
-            this.cartItems[ind].quantity++;
-            this.cartItems[ind] = { ...this.cartItems[ind] };
-        }
+    addBook(book) {
+        this._cartService.addBook(book, 1);
+    }
+
+    removeBook(book) {
+        this._cartService.removeBook(book);
     }
 
     increase(i) {
-        this.cartItems[i].quantity++;
-        this.cartItems[i] = { ...this.cartItems[i] };
+        this._cartService.increaseQuantity(i);
     }
 
     decrease(i) {
-        const quantity = this.cartItems[i].quantity;
-        if (quantity > 1) {
-            this.cartItems[i].quantity--;
-            this.cartItems[i] = { ...this.cartItems[i] };
-        }
-    }
-
-    deleteBook(i) {
-        this.cartItems.splice(i, 1);
+        this._cartService.decreaseQuantity(i);
     }
 }
