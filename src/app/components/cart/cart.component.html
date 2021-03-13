@@ -1,0 +1,13 @@
+<h3>Book cart</h3>
+<div *ngIf="cartItems.length">
+    <div *ngFor="let item of cartItems; index as i" class="cart-item">
+        <app-cart-item [cartItem]="item" class="item-info"></app-cart-item>
+        <div class="controls">
+            <button (click)="increase(i)">+</button>
+            <button (click)="decrease(i)">-</button>
+            <button (click)="removeBook(i)">del</button>
+        </div>
+    </div>
+</div>
+<p *ngIf="!cartItems.length">Cart is empty</p>
+<hr />
