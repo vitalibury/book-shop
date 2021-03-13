@@ -7,16 +7,10 @@ import { Component, ElementRef, Output, ViewChild } from '@angular/core';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements AfterViewInit {
-    @ViewChild('appTitle') appTitle: ElementRef;
-
-    title = 'Book shop';
-
+export class AppComponent implements OnInit {
     // books;
 
     // private _bookService;
-
-    currentBook;
 
     // constructor(BookService: BookService) {
     //   this._bookService = BookService;
@@ -25,16 +19,6 @@ export class AppComponent implements AfterViewInit {
     // ngOnInit() {
     //   this.books = this._bookService.getAllBooks();
     // }
-
-    ngAfterViewInit(): void {
-        this.appTitle.nativeElement.textContent = this.title;
-    }
-
-    onWheel() {
-        console.log('start wheel');
-    }
-
-    defineBook(data: any) {
-        this.currentBook = { ...data };
-    }
+    // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
+    ngOnInit() {}
 }

@@ -24,7 +24,7 @@ export class CartService {
     }
 
     removeBook(index) {
-        this.CartProduct.splice(index);
+        this.CartProduct.splice(index, 1);
     }
 
     increaseQuantity(item) {

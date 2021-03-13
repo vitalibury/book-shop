@@ -8,7 +8,7 @@ import { CartService } from 'src/app/services/cart/cart.service';
     styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnChanges {
-    @Input() currentBook;
+    @Input() currentBook: any;
 
     cartItems: any = [];
 
