@@ -1,5 +1,5 @@
 <h3>Book cart</h3>
-<div *ngIf="cartItems.length">
+<div *ngIf="cartItems.length; else emptyCard">
     <div *ngFor="let item of cartItems; index as i" class="cart-item">
         <app-cart-item [cartItem]="item" class="item-info"></app-cart-item>
         <div class="controls">
@@ -9,5 +9,7 @@
         </div>
     </div>
 </div>
-<p *ngIf="!cartItems.length">Cart is empty</p>
+<ng-template #emptyCard>
+    <p>Cart is empty</p>
+</ng-template>
 <hr />

@@ -8,7 +8,7 @@ import { IBookModel } from 'src/app/models/book';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CartItemComponent implements AfterContentInit {
-    @Input() cartItem;
+    @Input() cartItem: any;
 
     constructor() {}
 

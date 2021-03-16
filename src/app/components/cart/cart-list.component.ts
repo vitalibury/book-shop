@@ -3,11 +3,11 @@ import { IBookModel } from 'src/app/models/book';
 import { CartService } from 'src/app/services/cart/cart.service';
 
 @Component({
-    selector: 'app-cart',
-    templateUrl: './cart.component.html',
-    styleUrls: ['./cart.component.css'],
+    selector: 'app-cart-list',
+    templateUrl: './cart-list.component.html',
+    styleUrls: ['./cart-list.component.css'],
 })
-export class CartComponent implements OnChanges {
+export class CartListComponent implements OnChanges {
     @Input() currentBook: any;
 
     cartItems: any = [];
@@ -31,11 +31,11 @@ export class CartComponent implements OnChanges {
         console.log(this.cartItems);
     }
 
-    addBook(book) {
+    addBook(book: IBookModel) {
         this._cartService.addBook(book, 1);
     }
 
-    removeBook(book) {
+    removeBook(book: IBookModel) {
         this._cartService.removeBook(book);
     }
 

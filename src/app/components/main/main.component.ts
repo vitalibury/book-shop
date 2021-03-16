@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { IBookModel } from 'src/app/models/book';
 
 @Component({
     selector: 'app-main',
@@ -10,7 +11,7 @@ export class MainComponent implements OnInit, AfterViewInit {
 
     title: 'Book shop';
 
-    currentBook;
+    currentBook: IBookModel;
 
     constructor() {}
 
@@ -25,7 +26,7 @@ export class MainComponent implements OnInit, AfterViewInit {
         console.log('start wheel');
     }
 
-    defineBook(data: any) {
+    defineBook(data: IBookModel) {
         this.currentBook = { ...data };
     }
 }
