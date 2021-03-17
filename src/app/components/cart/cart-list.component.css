@@ -1,3 +1,17 @@
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.cart-info span {
+    align-self: center;
+}
+
 .cart-item {
     display: flex;
 }

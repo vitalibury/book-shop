@@ -37,13 +37,21 @@ export class CartListComponent implements OnChanges {
 
     removeBook(book: IBookModel) {
         this._cartService.removeBook(book);
+        this.updateCartInfo();
     }
 
     increase(i) {
         this._cartService.increaseQuantity(i);
+        this.updateCartInfo();
     }
 
     decrease(i) {
         this._cartService.decreaseQuantity(i);
+        this.updateCartInfo();
+    }
+
+    updateCartInfo() {
+        this.totalQuantity = this._cartService.totalQuantity;
+        this.totalSum = this._cartService.totalSum;
     }
 }

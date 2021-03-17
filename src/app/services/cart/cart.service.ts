@@ -4,13 +4,13 @@ import { Injectable } from '@angular/core';
 export class CartService {
     CartProduct: any = [];
 
-    totalQuantity: number;
+    totalQuantity = 0;
 
-    totalSum: number;
+    totalSum = 0;
 
     constructor() {}
 
-    addBook(book, quantity) {
+    addBook(book: any, quantity) {
         if (book === undefined) return;
         const index = this.CartProduct.findIndex((item) => item.book.name === book.name);
         console.log(index);
@@ -25,6 +25,7 @@ export class CartService {
 
     removeBook(index) {
         this.CartProduct.splice(index, 1);
+        this.updateCartData();
     }
 
     increaseQuantity(item) {
