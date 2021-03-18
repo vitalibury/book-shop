@@ -1,0 +1,28 @@
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.cart-info span {
+    align-self: center;
+}
+
+.cart-item {
+    display: flex;
+}
+
+.item-info {
+    flex-grow: 1;
+}
+
+.controls {
+    padding-left: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}

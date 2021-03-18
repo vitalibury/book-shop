@@ -1,0 +1,4 @@
+<h1 #appTitle (wheel)="onWheel()"></h1>
+<app-book-list (bookBuy)="defineBook($event)"></app-book-list>
+<app-cart-list [currentBook]="currentBook"></app-cart-list>
+<!-- [book]="bookElem" *ngFor="let bookElem of books" -->

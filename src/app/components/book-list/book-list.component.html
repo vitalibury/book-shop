@@ -1,0 +1,3 @@
+<div *ngFor="let book of books | async">
+    <app-book [book]="book" (bookBuy)="defineBook(book)"></app-book>
+</div>
