@@ -1,0 +1,9 @@
+<div class="book-item" [ngClass]="color" (mouseover)="onHover($event)" (mouseleave)="onHover($event)">
+    <div [ngStyle]="{ 'font-weight': 'bold' }">name: {{ book.name }}</div>
+    <div>description: {{ book.description }}</div>
+    <div>price: {{ book.price }}</div>
+    <div>category: {{ book.category }}</div>
+    <div appSelectOnClick [borderColor]="'red'">create date: {{ book.createDate }}</div>
+    <div>availability: {{ book.isAvailable }}</div>
+    <button (click)="onBuy(book)" [disabled]="!book.isAvailable">Buy</button>
+</div>

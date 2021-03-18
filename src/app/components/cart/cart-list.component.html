@@ -1,0 +1,21 @@
+<div class="cart-header">
+    <h3>Book cart</h3>
+    <div class="cart-info">
+        <span class="total-sum">Sum: {{ totalSum }}</span>
+        <span class="total-quantity">Quantity: {{ totalQuantity }}</span>
+    </div>
+</div>
+<div *ngIf="cartItems.length; else emptyCard">
+    <div *ngFor="let item of cartItems; index as i" class="cart-item">
+        <app-cart-item [cartItem]="item" class="item-info"></app-cart-item>
+        <div class="controls">
+            <button (click)="increase(i)">+</button>
+            <button (click)="decrease(i)">-</button>
+            <button (click)="removeBook(i)">del</button>
+        </div>
+    </div>
+</div>
+<ng-template #emptyCard>
+    <p>Cart is empty</p>
+</ng-template>
+<hr />
