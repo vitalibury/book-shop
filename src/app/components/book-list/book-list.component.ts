@@ -10,7 +10,7 @@ import { BookService } from 'src/app/services/book/book.service';
 export class BookListComponent implements OnInit {
     @Output() bookBuy = new EventEmitter();
 
-    books: object[];
+    books: Promise<object>;
 
     constructor(private _bookService: BookService) {}
 

@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { IBookModel } from 'src/app/models/book';
-import { BookService } from 'src/app/services/book/book.service';
 
 @Component({
     selector: 'app-book',
@@ -17,7 +16,7 @@ export class BookComponent implements OnInit {
 
     color = '';
 
-    constructor(private _bookService: BookService) {}
+    constructor() {}
 
     // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
     ngOnInit(): void {}

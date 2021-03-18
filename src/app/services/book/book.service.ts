@@ -64,6 +64,11 @@ export class BookService {
     constructor() {}
 
     getAllBooks() {
-        return this.books;
+        const data: Promise<object> = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(this.books);
+            }, 3000);
+        });
+        return data;
     }
 }
