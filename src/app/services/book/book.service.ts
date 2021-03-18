@@ -6,7 +6,7 @@ export class BookService {
         {
             name: 'book1',
             description: 'about book1',
-            price: 15,
+            price: 15.651,
             category: 2,
             createDate: '20.11.20',
             isAvailable: true,
@@ -22,7 +22,7 @@ export class BookService {
         {
             name: 'book3',
             description: 'about book3',
-            price: 18,
+            price: 18.2,
             category: 3,
             createDate: '20.11.20',
             isAvailable: true,
@@ -30,7 +30,7 @@ export class BookService {
         {
             name: 'book4',
             description: 'about book4',
-            price: 12,
+            price: 12.308994,
             category: 3,
             createDate: '20.11.20',
             isAvailable: true,
@@ -38,7 +38,7 @@ export class BookService {
         {
             name: 'book5',
             description: 'about book5',
-            price: 14,
+            price: 14.00007,
             category: 2,
             createDate: '20.11.20',
             isAvailable: false,
@@ -46,7 +46,7 @@ export class BookService {
         {
             name: 'book6',
             description: 'about book6',
-            price: 11,
+            price: 11.00346,
             category: 2,
             createDate: '20.11.20',
             isAvailable: true,
@@ -54,7 +54,7 @@ export class BookService {
         {
             name: 'book7',
             description: 'about book7',
-            price: 19,
+            price: 19.1346,
             category: 1,
             createDate: '20.11.20',
             isAvailable: true,

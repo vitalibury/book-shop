@@ -1,12 +1,23 @@
 <div class="cart-header">
     <h3>Book cart</h3>
     <div class="cart-info">
-        <span class="total-sum">Sum: {{ totalSum }}</span>
+        <span class="total-sum">Sum: {{ totalSum | currency: 'USD':'symbol-narrow':'1.2' }}</span>
         <span class="total-quantity">Quantity: {{ totalQuantity }}</span>
     </div>
 </div>
+<div class="cart-sort">
+    <select #sortField name="sort" id="">
+        <option value="price">by price</option>
+        <option value="quantity">by quantity</option>
+        <option value="title">by title</option>
+    </select>
+    <div style="display: inline-block; border: solid 1px black">
+        <span>Reverse</span>
+        <input type="checkbox" #reverse />
+    </div>
+</div>
 <div *ngIf="cartItems.length; else emptyCard">
-    <div *ngFor="let item of cartItems; index as i" class="cart-item">
+    <div *ngFor="let item of cartItems | orderBy: sortField.value:reverse.checked; index as i" class="cart-item">
         <app-cart-item [cartItem]="item" class="item-info"></app-cart-item>
         <div class="controls">
             <button (click)="increase(i)">+</button>

@@ -9,16 +9,16 @@ import { IBookModel } from 'src/app/models/book';
 export class MainComponent implements OnInit, AfterViewInit {
     @ViewChild('appTitle') appTitle: ElementRef;
 
-    title: 'Book shop';
-
     currentBook: IBookModel;
+
+    title = 'Book shop';
 
     constructor() {}
 
     // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
     ngOnInit(): void {}
 
-    ngAfterViewInit() {
+    ngAfterViewInit(): void {
         this.appTitle.nativeElement.textContent = this.title;
     }
 
